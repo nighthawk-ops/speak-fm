@@ -28,7 +28,13 @@
       </v-col>
     </v-row>
     <div class="d-flex align-center justify-center">
-      <v-btn class="mt-5 text-primary" color="white" size="large" rounded="xl">
+      <v-btn
+        class="mt-5 text-primary"
+        color="white"
+        size="large"
+        rounded="xl"
+        href="#contactUs"
+      >
         Get in touch</v-btn
       >
     </div>

@@ -1,9 +1,5 @@
 <template>
-  <v-container
-    id="about"
-    class="about-us justify-center align-center pa-8"
-    fluid
-  >
+  <v-container id="about" class="about-us justify-center align-center pa-8">
     <div class="d-flex flex-column">
       <div class="text-h3 text-center my-8">ABOUT US</div>
       <v-divider></v-divider>
@@ -31,7 +27,7 @@
       <v-row class="mt-20">
         <v-col>
           <div class="d-flex">
-            <v-icon size="100" color="primary">mdi-eye</v-icon>
+            <v-icon size="50" color="primary">mdi-eye</v-icon>
             <div>
               <div class="text-h5 mt-3">VISION</div>
               <p class="text-subtitle-1 mt-3">
@@ -43,7 +39,7 @@
 
         <v-col>
           <div class="d-flex">
-            <v-icon icon="mdi-adjust" size="100" color="primary"></v-icon>
+            <v-icon icon="mdi-adjust" size="50" color="primary"></v-icon>
             <div>
               <div class="text-h5 mt-3">MISSION</div>
               <p class="text-subtitle-1 mt-3">
@@ -58,7 +54,7 @@
           <div class="d-flex">
             <v-icon
               icon="mdi-flag-checkered"
-              size="100"
+              size="50"
               color="primary"
             ></v-icon>
             <div>
@@ -83,6 +79,6 @@ export default {
 <style scoped>
 .about-us {
   width: 100%;
-  min-height: 100vh;
+  margin-bottom: 40px;
 }
 </style>

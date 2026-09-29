@@ -4,20 +4,25 @@
     <v-divider></v-divider>
 
     <v-row class="mb-5">
-      <v-col v-for="n in 6" :key="n" cols="12" sm="4">
+      <v-col v-for="member in team" :key="member.name" cols="12" sm="4">
         <v-img
-          height="180"
-          max-width="auto"
-          src="../assets/default-profile.webp"
+          height="200"
+          max-width="200"
+          :src="member.image"
+          rounded="circle"
+          fit
+          aspect-ratio="16/9"
+          class="mx-auto"
         ></v-img>
-        <div class="d-flex flex-column align-center justify-center">
-          <div>Name</div>
-          <div>Positions</div>
-          <div class="d-flex">
+
+        <div class="d-flex flex-column align-center justify-center my-20">
+          <div>{{ member.name }}</div>
+          <div>{{ member.position }}</div>
+          <!-- <div class="d-flex">
             <v-icon size="30">mdi-linkedin</v-icon>
             <v-icon size="30">mdi-facebook</v-icon>
             <v-icon size="30">mdi-gmail</v-icon>
-          </div>
+          </div> -->
         </div>
       </v-col>
     </v-row>
@@ -26,10 +31,10 @@
   </v-container>
 </template>
 
-<script>
-export default {
-  name: "OurTeam",
-};
+<script setup>
+import { teamList } from "@/utils/teamHelper";
+
+const team = teamList;
 </script>
 
 <style scoped></style>

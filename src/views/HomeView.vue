@@ -3,6 +3,7 @@
   <HomeHero />
   <AboutUs />
   <RadioSchedule />
+  <NewsArticles />
   <OurServices />
   <OurTeam />
   <ContactUs />
@@ -19,6 +20,7 @@ import RadioSchedule from "@/components/RadioSchedule.vue";
 import OurServices from "@/components/OurServices.vue";
 import OurTeam from "@/components/OurTeam.vue";
 import ContactUs from "@/components/ContactUs.vue";
+import NewsArticles from "@/components/NewsArticles.vue";
 
 export default defineComponent({
   name: "HomeView",
@@ -31,6 +33,7 @@ export default defineComponent({
     OurServices,
     OurTeam,
     ContactUs,
+    NewsArticles,
   },
 });
 </script>

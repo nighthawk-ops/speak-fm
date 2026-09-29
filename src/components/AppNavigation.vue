@@ -13,7 +13,7 @@
   </v-navigation-drawer>
 
   <v-app-bar app :elevation="3" scroll-behavior="hide" scroll-threshold="20">
-    <v-img height="100" max-width="100" src="../assets/speakfmlogo.png"></v-img>
+    <v-img height="90" max-width="90" src="../assets/speakfmlogo.png"></v-img>
     <v-app-bar-title text="SPEAK FM" href="#home"></v-app-bar-title>
 
     <v-spacer></v-spacer>

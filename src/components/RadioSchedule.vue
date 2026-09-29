@@ -11,85 +11,14 @@
     >
       <div class="scroll-container">
         <v-carousel-item v-for="slide in carouselSlides" :key="slide.heading">
-          <v-container fluid>
-            <v-row align="stretch">
-              <!-- Current show -->
-              <v-col cols="12" lg="6">
-                <div
-                  class="current-show"
-                  :style="{
-                    backgroundImage: `url(${slide.featured?.image})`,
-                  }"
-                >
-                  <div class="overlay">
-                    <h2 class="text-h5 text-center">
-                      {{ slide.heading }}
-                    </h2>
-                    <h1 class="text-center">
-                      {{ slide.featured?.title }}
-                    </h1>
-                    <h3 class="text-center">{{ slide.featured?.presenter }}</h3>
-                    <p class="text-center">
-                      {{ slide.featured?.start }} - {{ slide.featured?.end }}
-                    </p>
+          <LiveShowSlide v-if="slide.type === 'live'" :slide="slide" />
 
-                    <v-btn
-                      append-icon="mdi-play-circle"
-                      class="mt-5"
-                      color="primary"
-                      size="large"
-                      rounded="xl"
-                    >
-                      TUNE IN
-                    </v-btn>
-                  </div>
-                </div>
-              </v-col>
+          <ScheduleSlides
+            v-else-if="slide.type === 'schedule'"
+            :slide="slide"
+          />
 
-              <!-- Program list column -->
-              <v-col cols="12" lg="6">
-                <v-card class="pa-2">
-                  <!-- Next Show -->
-                  <v-card-title v-if="slide.next"> Next Show </v-card-title>
-
-                  <v-card-text v-if="slide.next">
-                    <v-alert color="primary">
-                      <strong>
-                        {{ slide.next.title }}
-                      </strong>
-
-                      <br />
-
-                      {{ nextShow?.start }}
-                    </v-alert>
-                  </v-card-text>
-
-                  <v-divider></v-divider>
-
-                  <div style="overflow-y: scroll">
-                    <v-list>
-                      <v-list-item
-                        v-for="program in slide.programs"
-                        :key="program.id"
-                      >
-                        <v-list-item-title>
-                          {{ program.title }}
-                        </v-list-item-title>
-
-                        <v-list-item-subtitle>
-                          {{ program.presenter }}
-                        </v-list-item-subtitle>
-
-                        <template #append>
-                          {{ program.start }}
-                        </template>
-                      </v-list-item>
-                    </v-list>
-                  </div>
-                </v-card>
-              </v-col>
-            </v-row>
-          </v-container>
+          <NewsSlides v-else :slide="slide" />
         </v-carousel-item>
       </div>
     </v-carousel>
@@ -100,75 +29,83 @@
 import { radioScheduler } from "@/utils/radioScheduler";
 import { useRadioSchedule } from "@/utils/timeHelper";
 import { computed } from "vue";
+import LiveShowSlide from "./radioSchedule/LiveShowSlide.vue";
+import NewsSlides from "./radioSchedule/NewsSlides.vue";
+import ScheduleSlides from "./radioSchedule/ScheduleSlides.vue";
 
 const { currentShow, nextShow, todayPrograms } = useRadioSchedule();
 
-const carouselSlides = computed(() => {
-  const days = Object.keys(radioScheduler);
-
-  const slides = [];
-
-  // Live slide
-  slides.push({
+const carouselSlides = computed(() => [
+  // Slide 1
+  {
+    type: "live",
     heading: "Now Playing",
+
     featured: currentShow.value,
+
     next: nextShow.value,
+
     programs: todayPrograms.value,
-  });
+  },
 
-  // Day slides
-  days.forEach((day) => {
-    const programs = radioScheduler[day];
+  // Slide 2
+  {
+    type: "schedule",
 
-    slides.push({
-      heading: day.charAt(0).toUpperCase() + day.slice(1),
+    heading: "Monday - Friday",
 
-      featured: programs[0],
+    programs: radioScheduler.weekday,
+  },
 
-      next: null,
+  // Slide 3
+  {
+    type: "schedule",
 
-      programs,
-    });
-  });
+    heading: "Saturday",
 
-  return slides;
-});
+    programs: radioScheduler.saturday,
+  },
+
+  // Slide 4
+  {
+    type: "schedule",
+
+    heading: "Sunday",
+
+    programs: radioScheduler.sunday,
+  },
+
+  // Slide 5
+  {
+    type: "news",
+
+    heading: "News Schedule",
+
+    sections: [
+      {
+        title: "Monday - Friday",
+
+        programs: radioScheduler.news.weekday,
+      },
+
+      {
+        title: "Saturday",
+
+        programs: radioScheduler.news.saturday,
+      },
+
+      {
+        title: "Sunday",
+
+        programs: radioScheduler.news.sunday,
+      },
+    ],
+  },
+]);
 </script>
 
-<style scoped>
-.current-show {
-  min-height: 400px;
-  background-size: cover;
-  background-position: center;
-  position: relative;
-}
-
-@media (min-width: 960px) {
-  .current-show {
-    min-height: 400px;
-  }
-
-  .scroll-container {
-    overflow-y: hidden;
-  }
-}
-
+<style>
 .scroll-container {
   overflow-y: scroll;
-}
-
-.overlay {
-  position: absolute;
-  inset: 0;
-
-  background: rgba(0, 0, 0, 0.5);
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-
-  color: white;
-
-  padding: 3rem;
 }
 </style>

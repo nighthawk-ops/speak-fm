@@ -13,15 +13,10 @@
       Voices Unlimited
     </div>
 
-    <v-btn
-      append-icon="mdi-play-circle"
-      class="mt-5"
-      color="primary"
-      size="large"
-      rounded="xl"
-    >
-      TUNE IN
-    </v-btn>
+    <h1 class="text-white font-weight-bold">TUNE IN</h1>
+    <audio id="audio-player" preload="none" controls="" playsinline="">
+      <source src="https://www.radiocomnetu.org/speakfm-stream" />
+    </audio>
   </v-container>
 </template>
 
@@ -38,6 +33,6 @@ export default {
   background-position: center;
   width: 100%;
   min-height: 100vh;
-  background-color: (0, 0, 0, 0.5);
+  background-color: (0, 0, 0, 0.9);
 }
 </style>
