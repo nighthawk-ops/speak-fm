@@ -1,5 +1,5 @@
 <template>
-  <div id="schedule">
+  <div id="schedule" v-reveal>
     <div class="text-h3 text-center my-5">OUR SCHEDULE</div>
 
     <v-divider></v-divider>

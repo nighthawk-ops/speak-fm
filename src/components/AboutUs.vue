@@ -1,5 +1,9 @@
 <template>
-  <v-container id="about" class="about-us justify-center align-center pa-8">
+  <v-container
+    id="about"
+    v-reveal
+    class="about-us justify-center align-center pa-8"
+  >
     <div class="d-flex flex-column">
       <div class="text-h3 text-center my-8">ABOUT US</div>
       <v-divider></v-divider>

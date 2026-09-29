@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360" role="img" aria-labelledby="title desc">
+  <title id="title">Speak FM community</title>
+  <desc id="desc">Cyan, blue, and grey connected circles.</desc>
+  <rect width="1200" height="360" fill="#f5f7fa"/><path d="M780 180h250M865 105l165 75-165 75" fill="none" stroke="#1565c0" stroke-width="12" opacity=".45"/><circle cx="780" cy="180" r="42" fill="#0d2a4a"/><circle cx="865" cy="105" r="34" fill="#00acc1"/><circle cx="865" cy="255" r="34" fill="#607d8b"/><circle cx="1030" cy="180" r="42" fill="#1565c0"/>
+  <text x="70" y="150" fill="#0d2a4a" font-family="Arial,sans-serif" font-size="46" font-weight="700">SPEAK FM COMMUNITY</text><text x="70" y="210" fill="#607d8b" font-family="Arial,sans-serif" font-size="27">Informed, connected, and heard.</text>
+</svg>

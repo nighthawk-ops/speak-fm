@@ -26,14 +26,7 @@
             </p>
             <h1 class="text-white font-weight-bold text-center">TUNE IN</h1>
             <div class="d-flex justify-center align-center">
-              <audio
-                id="audio-player"
-                preload="none"
-                controls=""
-                playsinline=""
-              >
-                <source src="https://www.radiocomnetu.org/speakfm-stream" />
-              </audio>
+              <v-btn href="#live-player" color="primary">Tune in</v-btn>
             </div>
           </div>
         </div>

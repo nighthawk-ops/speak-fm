@@ -4,7 +4,13 @@
     <v-divider></v-divider>
 
     <v-row class="mb-5">
-      <v-col v-for="member in team" :key="member.name" cols="12" sm="4">
+      <v-col
+        v-for="(member, index) in team"
+        :key="member.name"
+        v-reveal="{ delay: Math.min(index, 5) * 70 }"
+        cols="12"
+        sm="4"
+      >
         <v-img
           height="200"
           max-width="200"

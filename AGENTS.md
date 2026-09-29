@@ -4,7 +4,7 @@
 
 This repository is a static Vue/Vuetify radio-station site with exactly these page sections, in order: Header, Hero, Advert banner, About us, Radio schedule, Latest posts, Services, Team, Reviews, and Contact us.
 
-In scope: accessible presentation of station content, live stream playback, schedule, third-party WordPress news consumption, static adverts, and the reviews feature defined by the backend rules. The reviews backend may only accept a review and return the five most recent approved reviews; never expose reviewer emails.
+In scope: accessible presentation of station content, live stream playback, schedule, third-party WordPress news consumption, static adverts, static sample reviews, and a configurable external contact form.
 
 Out of scope unless explicitly approved: new pages or sections, accounts/login, e-commerce, CMS/admin UI, unrelated backend endpoints, plugins, server changes to the third-party WordPress site, and new dependencies.
 
@@ -48,11 +48,10 @@ Until the Phase 4 baseline is recorded, use this provisional ceiling: initial Ja
 ## Security and privacy
 
 - Never use `v-html` for untrusted WordPress, review, or advert content. Prefer plain text; sanitize only when HTML is unavoidable.
-- Never put secrets, API keys, moderation tokens, or credentials in frontend code or committed `.env` files.
-- Validate and sanitize review fields server-side; client validation is UX only. Enforce lengths, email format, and rating 1-5.
-- Keep reviews pending until an approved moderation method is chosen. Public responses must omit emails.
-- Use a honeypot, timing check, and per-IP rate limit; propose privacy-friendly CAPTCHA only if needed.
-- Restrict backend CORS to the site origin. Use HTTPS for all assets, stream, and API requests.
+- Never put secrets, API keys, or credentials in frontend code or committed `.env` files.
+- Treat static adverts and sample reviews as editable content, not verified user submissions. Label sample reviews clearly and never imply they are real testimonials.
+- Contact form submissions must use the configured external form-service endpoint; validate and length-limit fields client-side and use a honeypot.
+- Use HTTPS for all assets, stream, WordPress, and form-service requests.
 - Recommend CSP, X-Content-Type-Options, Referrer-Policy, Permissions-Policy, and frame protections for the chosen host.
 
 ## Motion rules

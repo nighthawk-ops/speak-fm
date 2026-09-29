@@ -1,0 +1,71 @@
+:root {
+  --primary-blue: #1565c0;
+  --dark-blue: #0d2a4a;
+  --cyan: #00acc1;
+  --white: #ffffff;
+  --grey: #607d8b;
+  --text-dark: #16202a;
+  --text-light: #ffffff;
+  --motion-duration: 400ms;
+  --motion-easing: cubic-bezier(0.22, 1, 0.36, 1);
+  --motion-distance: 20px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: rgb(var(--v-theme-background));
+  color: rgb(var(--v-theme-on-background));
+}
+
+[id] {
+  scroll-margin-top: 80px;
+}
+
+:focus-visible {
+  outline: 3px solid rgb(var(--v-theme-primary));
+  outline-offset: 3px;
+}
+
+.v-card {
+  transition: transform 220ms var(--motion-easing);
+}
+
+.v-card:hover {
+  transform: translateY(-3px);
+}
+
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(var(--motion-distance));
+  transition:
+    opacity var(--motion-duration) var(--motion-easing),
+    transform var(--motion-duration) var(--motion-easing);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+[data-reveal].reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  [data-reveal],
+  [data-reveal].reveal-visible {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .v-card,
+  .v-card:hover {
+    transform: none;
+    transition: none;
+  }
+}

@@ -1,11 +1,14 @@
 <template>
   <AppNavigation />
   <HomeHero />
+  <LivePlayer />
+  <AdvertBanner />
   <AboutUs />
   <RadioSchedule />
   <NewsArticles />
   <OurServices />
   <OurTeam />
+  <ReviewsSection />
   <ContactUs />
 </template>
 
@@ -21,6 +24,9 @@ import OurServices from "@/components/OurServices.vue";
 import OurTeam from "@/components/OurTeam.vue";
 import ContactUs from "@/components/ContactUs.vue";
 import NewsArticles from "@/components/NewsArticles.vue";
+import AdvertBanner from "@/components/AdvertBanner.vue";
+import ReviewsSection from "@/components/ReviewsSection.vue";
+import LivePlayer from "@/components/LivePlayer.vue";
 
 export default defineComponent({
   name: "HomeView",
@@ -34,6 +40,9 @@ export default defineComponent({
     OurTeam,
     ContactUs,
     NewsArticles,
+    AdvertBanner,
+    ReviewsSection,
+    LivePlayer,
   },
 });
 </script>

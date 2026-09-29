@@ -6,8 +6,9 @@
     </div>
     <v-row>
       <v-col
-        v-for="service in services"
+        v-for="(service, index) in services"
         :key="service.title"
+        v-reveal="{ delay: Math.min(index, 5) * 70 }"
         cols="12"
         md="4"
         sm="6"
