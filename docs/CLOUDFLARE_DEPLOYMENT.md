@@ -1,6 +1,6 @@
 # Cloudflare Pages deployment guide
 
-Reviewed 2026-09-29. The current repository is a Vue CLI static frontend. It is compatible with Cloudflare Pages as a static site. Adverts and sample reviews are local content; contact submissions use an external form-to-email service.
+Reviewed 2026-09-30. The current repository is a Vite static frontend. It is compatible with Cloudflare Pages as a static site. Adverts and sample reviews are local content; contact submissions use an external form-to-email service.
 
 ## Pages configuration
 
@@ -17,10 +17,10 @@ Configure these in Cloudflare Pages → Settings → Environment variables for P
 
 | Variable | Required | Purpose |
 | --- | --- | --- |
-| `VUE_APP_STREAM_URL` | Yes | HTTPS live stream URL. |
-| `VUE_APP_WORDPRESS_BASE_URL` | Yes | Third-party WordPress base URL, without `/wp-json`. |
-| `VUE_APP_CONTACT_EMAIL` | Optional | Designated contact email for deployment configuration. |
-| `VUE_APP_CONTACT_FORM_ENDPOINT` | Yes for form delivery | Formspree-compatible public form endpoint. |
+| `VITE_STREAM_URL` | Yes | HTTPS live stream URL. |
+| `VITE_WORDPRESS_BASE_URL` | Yes | Third-party WordPress base URL, without `/wp-json`. |
+| `VITE_CONTACT_EMAIL` | Optional | Designated contact email for deployment configuration. |
+| `VITE_CONTACT_FORM_ENDPOINT` | Yes for form delivery | Formspree-compatible public form endpoint. |
 
 Frontend variables are embedded into the build and must never contain secrets. The contact endpoint is a public form destination, not a secret.
 
@@ -48,15 +48,16 @@ The public advert component reads the three local records, shows one background-
 
 ## Contact form
 
-The Contact section submits JSON to `VUE_APP_CONTACT_FORM_ENDPOINT`, intended for a Formspree form endpoint. Create the form in the Formspree dashboard, set its destination email there, then copy the endpoint into Cloudflare Pages Production environment variables.
+The Contact section submits JSON to `VITE_CONTACT_FORM_ENDPOINT`, intended for a Formspree form endpoint. Create the form in the Formspree dashboard, set its destination email there, then copy the endpoint into Cloudflare Pages Production environment variables.
 
 ## Local verification
 
 ```text
 npm install
-npm run serve
+npm run dev
 npm run lint
 npm run build
+npm run preview
 ```
 
 Before production launch, verify API CORS, HTTPS stream compatibility, WordPress image CORS, `_headers` CSP allowances, image loading, and the final custom domain on both mobile and desktop.

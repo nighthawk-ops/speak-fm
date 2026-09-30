@@ -7,7 +7,7 @@ Reviewed on 2026-09-29. This describes the current working tree, including exist
 - Vue 3, declared as `^3.2.13`; installed `3.5.38` (`package.json:14`, `package-lock.json:2988`).
 - Vuetify 3, declared as `^3.0.0-beta.0`; installed `3.12.8` (`package.json:16`).
 - Vue Router 4 (`package.json:15`), Vuex 4 (`package.json:17`), Core-js (`package.json:12`).
-- Vue CLI 5 / webpack build, not Vite: `@vue/cli-service` and CLI plugins (`package.json:23-27`); build config is `vue.config.js:1-10`.
+- Vite 8 build with the official Vue and Vuetify plugins; build configuration is `vite.config.mjs`.
 - UI assets: MDI font `5.9.55`, Roboto fontface, and dynamically loaded Google Poppins, Montserrat, and Roboto (`package.json:11,13`, `src/plugins/webfontloader.js:7-19`).
 - Linting/formatting: ESLint 7, eslint-plugin-vue, Prettier (`package.json:28-32`).
 
@@ -64,9 +64,9 @@ Reviews are intentionally static sample content. Replace the five records in `sr
 
 ```text
 npm install
-npm run serve   # development server with hot reload
+npm run dev     # development server with hot reload
 npm run build   # production build to dist/
-npm run lint    # Vue CLI lint task
+npm run lint    # ESLint source check
 ```
 
 These scripts are defined in `package.json:5-8` and are also documented in `README.md:3-21`. There is no `test` script or `preview` script. Cloudflare Pages preparation is documented in `docs/CLOUDFLARE_DEPLOYMENT.md`.

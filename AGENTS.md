@@ -10,17 +10,17 @@ Out of scope unless explicitly approved: new pages or sections, accounts/login, 
 
 ## Stack source of truth
 
-Use `package.json` for declared versions. The current project uses Vue 3, Vuetify 3, Vue Router 4, Vuex 4, Vue CLI 5, webpack, ESLint, and Prettier. Do not assume Vite: `vue.config.js` and the CLI scripts are authoritative.
+Use `package.json` for declared versions. The current project uses Vue 3, Vuetify 3, Vue Router 4, Vuex 4, Vite, ESLint, and Prettier. `vite.config.mjs` and the Vite scripts are authoritative.
 
 ## Commands
 
 ```text
 npm install
-npm run serve
+npm run dev
 npm run build
 npm run lint
 npm test              # currently unavailable: no test script is defined
-npm run preview       # currently unavailable: no preview script is defined
+npm run preview
 ```
 
 Do not invent missing commands; update this file only when the project scripts change.
