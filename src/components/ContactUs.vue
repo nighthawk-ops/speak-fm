@@ -3,11 +3,6 @@
     <div class="overlay">
       <div class="d-flex flex-column ga-4 mt-4">
         <div>
-          <v-img
-            height="250"
-            src="../assets/speakfmlogo.png"
-            max-width="auto"
-          ></v-img>
           <div class="d-flex flex-column align-center">
             <h1>SPEAK FM</h1>
             <h3>VOICES UNLIMITED</h3>
