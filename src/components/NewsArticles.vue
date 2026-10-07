@@ -44,7 +44,11 @@
             cover
             loading="lazy"
           />
-          <v-card-title>{{ post.title }}</v-card-title>
+          <v-card-title>
+            <div class="text-wrap">
+              {{ post.title }}
+            </div>
+          </v-card-title>
           <v-card-subtitle>{{ post.date }}</v-card-subtitle>
           <v-card-text>{{ post.excerpt }}</v-card-text>
           <v-card-actions>
@@ -158,10 +162,14 @@ onMounted(async () => {
 </script>
 
 <style scoped>
-.v-card {
+/* .v-card {
   overflow: hidden;
-}
+} */
 
+.text-wrap{
+  display: flex;
+  flex-wrap: wrap;
+}
 :deep(.v-img) {
   transition: transform 300ms var(--motion-easing);
 }

@@ -13,7 +13,10 @@
   </v-navigation-drawer>
 
   <v-app-bar app :elevation="3" scroll-behavior="hide" scroll-threshold="20">
-    <v-img height="90" max-width="90" src="../assets/speakfmlogo.png"></v-img>
+    <div>
+      <v-img height="60" width="60" :src= speakFmLogo></v-img>
+    </div>
+    
     <v-app-bar-title text="SPEAK FM" href="#home"></v-app-bar-title>
 
     <v-spacer></v-spacer>
@@ -52,12 +55,15 @@
 </template>
 
 <script>
+import speakFmLogo from "@/assets/speakfmlogo.png"
 export default {
   name: "AppNavigation",
   data() {
     return {
       appTitle: "Speak FM",
       drawer: false,
+
+      speakFmLogo,
       items: [
         { title: "About us", href: "#about" },
         { title: "Advert", href: "#advert" },
