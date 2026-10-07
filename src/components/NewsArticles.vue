@@ -1,5 +1,5 @@
 <template>
-  <v-container v-reveal id="news">
+  <v-container v-reveal id="news" fluid>
     <br />
     <v-divider></v-divider>
     <h2 class="text-h3 text-center my-8 text-primary">LATEST NEWS</h2>
